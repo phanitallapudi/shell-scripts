@@ -20,3 +20,6 @@ python3.11 --version
 
 # Install python3-venv if not installed
 sudo apt install python3-venv -y
+
+# Install git
+sudo apt install git -y
