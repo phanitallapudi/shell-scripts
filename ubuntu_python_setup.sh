@@ -26,3 +26,9 @@ sudo apt install python3-venv -y
 
 # Install git
 sudo apt install git -y
+
+# Install crontab
+sudo apt install cron
+sudo systemctl start cron
+sudo systemctl enable cron
+
