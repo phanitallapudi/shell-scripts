@@ -15,6 +15,9 @@ sudo apt update
 # Install Python 3.11
 sudo apt install python3.11 -y
 
+# Install Python 3.11 venv
+sudo apt install python3.11-venv
+
 # Verify the installation
 python3.11 --version
 
