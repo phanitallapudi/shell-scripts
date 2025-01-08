@@ -15,7 +15,7 @@ sudo dnf install -y python3.11
 # Install Python 3.11 venv
 sudo dnf install -y python3.11-venv
 
-# Verify the installation
+# Verify the installation of Python 3.11
 python3.11 --version
 
 # Install git
@@ -25,3 +25,18 @@ sudo dnf install -y git
 sudo dnf install -y cronie
 sudo systemctl start crond
 sudo systemctl enable crond
+
+# Install Poetry (Python dependency manager)
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Add Poetry to the PATH (modify .bashrc to make it persistent)
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Verify the installation of Poetry
+poetry --version
+
+# (Optional) Configure Poetry to create virtual environments inside the project directory
+poetry config virtualenvs.in-project true
+
+echo "Setup complete!"
