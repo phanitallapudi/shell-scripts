@@ -32,3 +32,5 @@ sudo usermod -aG docker $USER
 echo "Docker installation completed!"
 docker --version
 sudo systemctl status docker --no-pager
+
+docker run -d --restart unless-stopped -p 60000:9000 --name portainer -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
