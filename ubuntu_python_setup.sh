@@ -30,22 +30,4 @@ sudo apt install cron -y
 sudo systemctl start cron
 sudo systemctl enable cron
 
-# Install Poetry using Python 3.11 explicitly
-curl -sSL https://install.python-poetry.org | python3.11 -
-
-# Add Poetry to PATH and reload shell
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-exec $SHELL
-
-# Verify Poetry installation
-poetry --version
-
-# Configure Poetry to create virtual environments inside the project directory
-poetry config virtualenvs.in-project true
-
-# Test creating a virtual environment with Python 3.11
-python3 -m venv myenv
-source myenv/bin/activate
-echo "Python virtual environment setup successfully!"
-
 echo "Setup complete!"
