@@ -1,26 +1,30 @@
 #!/bin/bash
 
-# Update the package list
-sudo apt update -y
+set -e  # Exit immediately if a command exits with a non-zero status
 
-# Install software-properties-common
-sudo apt install software-properties-common -y
+echo "Updating system packages..."
+sudo apt update && sudo apt upgrade -y
 
-# Add the deadsnakes PPA for Python 3.11
+echo "Installing required dependencies..."
+sudo apt install -y software-properties-common
+
+echo "Adding deadsnakes PPA for Python versions..."
 sudo add-apt-repository ppa:deadsnakes/ppa -y
 
-# Update the package list again after adding the PPA
-sudo apt update -y
+echo "Updating package lists after adding PPA..."
+sudo apt update
 
-# Install Python 3.11 and venv
-sudo apt install python3.11 python3.11-venv -y
+echo "Installing Nginx and Certbot..."
+sudo apt install -y nginx certbot python3-certbot-nginx
 
-# Set Python 3.11 as default
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
-sudo update-alternatives --config python3
+echo "Installing Python 3.11 and 3.12..."
+sudo apt install -y python3.11 python3.12 python3.11-venv python3.12-venv python3.11-dev python3.12-dev
 
-# Verify installation
-python3 --version
+echo "Verifying Python installations..."
+python3.11 --version
+python3.12 --version
+
+echo "Python setup complete!"
 
 # Install git
 sudo apt install git -y
