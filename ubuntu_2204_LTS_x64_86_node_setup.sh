@@ -15,10 +15,14 @@ sudo apt install -y nodejs
 # Install PM2 globally
 sudo npm install -g pm2
 
-# Verify Node.js and PM2 installation
+# Install serve globally
+sudo npm install -g serve
+
+# Verify Node.js, npm, PM2, and serve installation
 node -v
 npm -v
 pm2 -v
+serve -v
 
 # Enable PM2 to start on boot
 sudo pm2 startup systemd -u $(whoami) --hp $(eval echo ~$USER)
@@ -26,4 +30,10 @@ sudo pm2 startup systemd -u $(whoami) --hp $(eval echo ~$USER)
 # Save PM2 process list and environment
 pm2 save
 
-echo "Node.js, npm, and PM2 have been installed successfully!"
+echo "Node.js, npm, PM2, and serve have been installed successfully!"
+
+# Start the app with PM2 using serve
+cd /home/sporouser/sporo-synopsis-app-organization-FE || exit
+pm2 start serve --name sporo-synopsis-app-organization-FE -- -s build -l 3000
+
+echo "App is started using PM2 and serve!"
