@@ -31,9 +31,3 @@ sudo pm2 startup systemd -u $(whoami) --hp $(eval echo ~$USER)
 pm2 save
 
 echo "Node.js, npm, PM2, and serve have been installed successfully!"
-
-# Start the app with PM2 using serve
-cd /home/sporouser/sporo-synopsis-app-organization-FE || exit
-pm2 start serve --name sporo-synopsis-app-organization-FE -- -s build -l 3000
-
-echo "App is started using PM2 and serve!"
